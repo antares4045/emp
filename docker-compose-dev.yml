@@ -1,0 +1,13 @@
+version:  '3'
+
+services:
+    frontend : 
+        build:
+            dockerfile: Dockerfile-dev
+        command: npm run start
+        environment: 
+            - CHOKIDAR_USEPOLLING=true
+
+        ports:
+            - target: ${FRONTEND_PORT}
+              published: 3000

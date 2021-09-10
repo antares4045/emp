@@ -1,0 +1,28 @@
+version:  '3'
+
+services:
+    frontend : 
+        build: 
+            context: ./.
+        container_name: test-webpack-frontend
+        command: serve -s dist -l ${FRONTEND_PORT}
+        environment: 
+            - HOST=0.0.0.0
+            - PORT=${FRONTEND_PORT}
+        volumes:
+            - ./src:/app/src
+            - ./public:/app/public
+            - ./assets:/app/assets
+
+
+    nginx:
+        image: nginx:stable-alpine
+        container_name: test-webpack-nginx
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf.dev:/etc/nginx/conf.d/nginx.conf
+        depends_on:
+            - frontend
+            

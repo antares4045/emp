@@ -1,0 +1,10 @@
+{
+  "title": "Пустой проект",
+  "resolveExtentions": [".js", ".jsx", ".json"],
+
+  "srcPath": "src",
+  "distPath": "dist",
+  "publicPath": "public",
+  "configPath": "configs",
+  "assetsPath": "assets"
+}
