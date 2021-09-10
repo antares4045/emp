@@ -109,7 +109,7 @@ module.exports = {
       },
     ],
   },
-  devtool : isDev ? 'source-map' : '',
+  devtool : isDev ? 'source-map' : 'hidden-source-map',
   plugins,
   devServer: {
     port: process.env.PORT || "3000",
